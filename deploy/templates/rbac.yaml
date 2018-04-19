@@ -2,7 +2,7 @@
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: {{ .Chart.name }}
+  name: {{ .Chart.Name }}
   labels:
     {{- include "commonMeta" . | indent 4}}
     component: {{ template "fullname" . }}
@@ -10,7 +10,10 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: ["events"]
-    verbs: ["list", "watch", "create", "update", "patch"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["get", "list", "watch"]
   - apiGroups: [""]
     resources: ["secrets"]
     verbs: ["get", "list", "watch", "create", "update"]
@@ -19,7 +22,7 @@ rules:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ .Chart.name }}
+  name: {{ .Chart.Name }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "commonMeta" . | indent 4}}
@@ -30,17 +33,17 @@ metadata:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: {{ .Chart.name }}
+  name: {{ .Chart.Name }}
   labels:
     {{- include "commonMeta" . | indent 4}}
     component: {{ template "fullname" . }}
     role: cluster-role-binding
 subjects:
   - kind: ServiceAccount
-    name: {{ .Chart.name }}
+    name: {{ .Chart.Name }}
     namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
-  name: {{ .Chart.name }}
+  name: {{ .Chart.Name }}
   apiGroup: rbac.authorization.k8s.io
 

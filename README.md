@@ -8,7 +8,6 @@ Features
 - Automatically create/update/delete private docker repo secret to namespaces
 - Automatically refresh secret in a given period (default two hourly)
 
-
 Docker Hub Image
 ---
 [liangrog/kctlr-docker-auth](https://hub.docker.com/r/liangrog/kctlr-docker-auth/)
@@ -20,6 +19,8 @@ Version Mapping
 | Master | HEAD    | latest       | 1.9.3      |
 | v1.9.3 | v1.9.3  | 1.9.3        | 1.9.3      |
 
+How it works
+---
 
 Installation
 ---

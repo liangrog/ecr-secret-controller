@@ -185,6 +185,5 @@ func NewController(queue workqueue.RateLimitingInterface, informer cache.SharedI
 		informer: informer,
 		indexer:  indexer,
 		handler:  handler,
-		//logger:   logger,
 	}
 }

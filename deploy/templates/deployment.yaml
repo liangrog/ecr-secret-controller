@@ -1,0 +1,48 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ .Chart.name }}
+  labels:
+    {{- include "commonMeta" . | indent 4}}
+    component: {{ template "fullname" . }}
+spec:
+  replicas: {{ .Values.replicas }}
+  strategy:
+    type: {{ .Values.strategyType }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.name }}
+      role: controller
+  template:
+    metadata:
+      labels:
+        {{- include "commonMeta" . | indent 4}}
+        component: {{ template "fullname" . }}
+        app: {{ .Chart.name }}
+        role: controller
+    spec:
+      serviceAccount: {{ .Chart.name }}
+      containers:
+        - name: {{ .Chart.name }}
+          image: "{{ .Values.repository }}:{{ .Values.tag }}"
+          imagePullPolicy: Always
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              value: {{ .Values.awsKey }}
+            - name: AWS_SECRET_ACCESS_KEY
+              value:  {{ .Values.awsSecret }}
+            - name: AWS_DEFAULT_REGION
+              value:  {{ .Values.awsRegion }}
+            - name: ECR_RESYNC_PERIOD
+              value: {{ .Values.ecrResyncPeriod }}
+            - name: ECR_SECRET_NAME
+              value: {{ .Values.ecrSecretName }}
+            - name: KUBE_CONFIG_TYPE
+              value: {{ default "in" .Values.kubeConfigType }}
+            - name: KUBE_CONFIG_PATH
+              value: {{ .Values.kubeConfigPath }}:
+            - name: WORKER_NUMBER
+              value: {{ .Values.workerNumber }}
+            - name: EXCLUDE_NAMESPACES
+              value: {{ .Values.exclude | quote }}

@@ -1,0 +1,16 @@
+---
+name: kctlr-docker-auth
+version: 1.0.0
+description: Custom kubernetes controller generates docker config secrets
+keyworkds:
+  - kubernetes
+  - docker
+  - secret
+  - dockerconfig
+  - controller
+home: https://github.com/liangrog/kctlr-docker-auth
+sources:
+  - https://github.com/liangrog/kctlr-docker-auth
+maintainers:
+  - name: Roger Liang
+engine: gotpl

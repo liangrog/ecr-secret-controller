@@ -1,0 +1,38 @@
+## Configuration for controller
+
+# Kubernetes config file type:
+# "in": controller will pick it up within the cluster. Default type.
+# "out": controller will pick it up from a given path. If set this type, you must set "kubeConfigPath"
+#kubeConfigType:
+
+# Kubernetes config file path when setting "kubeConfigType" to "out"
+#kubeConfigPath:
+
+# Number of workers to spawn. Default to 2
+#workerNumber:
+
+# Namespaces not to observe. Comma delimited string. e.g. "ns1,ns2"
+#exclude:
+
+## Configuration for AWS ECR
+
+# AWS secret key id
+#awsKey:
+
+# AWS key secret
+#awsSecret:
+
+# AWS default region
+#awsRegion:
+
+# How often to sync ECR login token. Default to 2 hours
+#ecrResyncPeriod:
+
+# Name of the secret. Default to "ecr"
+#ecrSecretName:
+
+## Controller deplpoyment
+repository: liangrog/kctlr-docker-auth
+tag: 1.9.3
+replicas: 1
+strategyType: Recreate

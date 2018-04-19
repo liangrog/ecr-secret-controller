@@ -2,7 +2,7 @@ package aws
 
 import (
 	"log"
-	_ "os"
+	"os"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"

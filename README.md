@@ -14,17 +14,17 @@ Docker Hub Image
 
 Version Mapping
 ---
-| Branch |   Tag   | Docker Image | Kubernetes | 
-|:------:|:-------:|:------------:|:----------:|
-| Master | HEAD    | latest       | 1.9.3      |
-| v1.9.3 | v1.9.3  | 1.9.3        | 1.9.3      |
+|     Branch     |   Tag   | Docker Image | Kubernetes | 
+|:--------------:|:-------:|:------------:|:----------:|
+| Master         | HEAD    | latest       | 1.9.3      |
+| release-1.9.3  | v1.9.3  | 1.9.3        | 1.9.3      |
 
 How it works
 ---
 
 Installation
 ---
-1. Deploy to kubernetes cluster via Helm
+1. Deploy to kubernetes cluster via Helm. [Details see here](https://github.com/liangrog/chart-kctlr-docker-auth)
 
 
 2. Deploy outside kubernetes cluster via docker 

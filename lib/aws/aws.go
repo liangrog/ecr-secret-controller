@@ -1,8 +1,12 @@
 package aws
 
 import (
+	"crypto/tls"
 	"log"
+	"net/http"
+	"net/url"
 	"os"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
@@ -21,10 +25,35 @@ var (
 			&aws.Config{
 				Credentials: credentials.NewEnvCredentials(),
 				Region:      aws.String(os.Getenv("AWS_DEFAULT_REGION")),
+				HTTPClient:  GetHttpClient(),
 			},
 		),
 	)
 )
+
+// Get http client for aws calls
+func GetHttpClient() *http.Client {
+	if os.Getenv("AWS_HTTPS_PROXY") != "" {
+		proxyURL, err := url.Parse(os.Getenv("AWS_HTTPS_PROXY"))
+		if err != nil {
+			log.Fatalf("Error parsing proxy URL %s", os.Getenv("AWS_HTTPS_PROXY"))
+		}
+
+		// One minute timeout
+		var timeout time.Duration = 60
+
+		transport := http.Transport{
+			Proxy:           http.ProxyURL(proxyURL),
+			TLSClientConfig: &tls.Config{},
+		}
+
+		return &http.Client{Transport: &transport,
+			Timeout: time.Duration(time.Second * timeout),
+		}
+	}
+
+	return &http.Client{}
+}
 
 // Retrieving ECR auths
 func GetEcrAuths() ([]*ecr.AuthorizationData, error) {

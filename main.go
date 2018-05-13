@@ -35,10 +35,12 @@ import (
 const (
 	// We watch namespaces
 	watchObj = "namespaces"
+
+	// Global default sync period
+	defaultSyncPeriod = 1 * time.Hour
 )
 
 func main() {
-
 	workerNumber, _ := strconv.Atoi(lc.GetEnvWithDefault("WORKER_NUMBER", "2"))
 
 	// Create kubernetes client
@@ -59,7 +61,7 @@ func main() {
 	informer := cache.NewSharedIndexInformer(
 		listWatcher,
 		&v1.Namespace{},
-		0, // Default not resync, set it when add event handler
+		defaultSyncPeriod,
 		cache.Indexers{},
 	)
 

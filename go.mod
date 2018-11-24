@@ -1,0 +1,41 @@
+module github.com/liangrog/kctlr-docker-auth
+
+require (
+	github.com/PuerkitoBio/purell v0.0.0-20160728015603-8a290539e2e8
+	github.com/PuerkitoBio/urlesc v0.0.0-20160726150825-5bd2802263f2
+	github.com/aws/aws-sdk-go v0.0.0-20180410222159-57564ea051fa
+	github.com/davecgh/go-spew v0.0.0-20170626231645-782f4967f2dc
+	github.com/emicklei/go-restful v0.0.0-20170410110728-ff4f55a20633
+	github.com/ghodss/yaml v0.0.0-20150909031657-73d445a93680
+	github.com/go-ini/ini v0.0.0-20180412220431-ace140f73450
+	github.com/go-openapi/jsonpointer v0.0.0-20160704185906-46af16f9f7b1
+	github.com/go-openapi/jsonreference v0.0.0-20160704190145-13c6e3589ad9
+	github.com/go-openapi/spec v0.0.0-20170914061247-7abd5745472f
+	github.com/go-openapi/swag v0.0.0-20170606142751-f3f9494671f9
+	github.com/gogo/protobuf v0.0.0-20170330071051-c0656edd0d9e
+	github.com/golang/glog v0.0.0-20141105023935-44145f04b68c
+	github.com/golang/protobuf v0.0.0-20171021043952-1643683e1b54
+	github.com/google/btree v0.0.0-20160524151835-7d79101e329e
+	github.com/google/gofuzz v0.0.0-20161122191042-44d81051d367
+	github.com/googleapis/gnostic v0.0.0-20170729233727-0c5108395e2d
+	github.com/gregjones/httpcache v0.0.0-20170728041850-787624de3eb7
+	github.com/hashicorp/golang-lru v0.0.0-20160207214719-a0d98a5f2880
+	github.com/howeyc/gopass v0.0.0-20170109162249-bf9dde6d0d2c
+	github.com/imdario/mergo v0.0.0-20141206190957-6633656539c1
+	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+	github.com/json-iterator/go v0.0.0-20170829155851-36b14963da70
+	github.com/juju/ratelimit v0.0.0-20170523012141-5b9ff8664717
+	github.com/mailru/easyjson v0.0.0-20170624190925-2f5df55504eb
+	github.com/peterbourgon/diskv v0.0.0-20170814173558-5f041e8faa00
+	github.com/spf13/pflag v0.0.0-20170130214245-9ff6c6923cff
+	golang.org/x/crypto v0.0.0-20170825220121-81e90905daef
+	golang.org/x/net v0.0.0-20170809000501-1c05540f6879
+	golang.org/x/sys v0.0.0-20171031081856-95c657629925
+	golang.org/x/text v0.0.0-20170810154203-b19bf474d317
+	gopkg.in/inf.v0 v0.0.0-20150911125757-3887ee99ecf0
+	gopkg.in/yaml.v2 v2.0.0-20150924142314-53feefa2559f
+	k8s.io/api v0.0.0-20180103015100-006a217681ae
+	k8s.io/apimachinery v0.0.0-20180103014849-68f9c3a1feb3
+	k8s.io/client-go v0.0.0-20180103015815-9389c055a838
+	k8s.io/kube-openapi v0.0.0-20171101183504-39a7bf85c140
+)

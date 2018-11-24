@@ -2,6 +2,10 @@ Docker authentication controller for Kubernetes
 ===
 Kubernetes custom controller creating/refreshing docker config secret for private docker repos such as ECR.
 
+Requirements
+---
+- go v1.11
+
 Features
 ---
 - Observing namespace event such as create, update and delete

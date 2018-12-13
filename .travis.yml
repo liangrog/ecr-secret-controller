@@ -25,8 +25,9 @@ jobs:
   include:
     - stage: test
       script:
-        - go test
+        - make test
         - make all
+        - ls -alt
     - stage: binary build
       script: make docker_binary
       if: tag IS present

@@ -15,6 +15,8 @@ LDFLAGS=-ldflags "-s -w \
 
 all: fast
 
+test:
+	GO111MODULE=on go test ./...
 clean:
 	go clean
 	rm ./${APPNAME} || true

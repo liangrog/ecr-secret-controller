@@ -1,0 +1,36 @@
+language: go
+
+services:
+  - docker
+
+# Use container based
+sudo: false
+dist: trusty
+
+go:
+  - "1.11"
+
+env:
+- IMAGE_NAME: liangrog/kctlr-docker-auth
+
+stages:
+  - binary
+  - docker
+
+# Only run build for tags
+if: tag IS present
+
+jobs:  
+  include:
+    - stage: binary
+      script: make docker_binary
+    - stage: docker
+      before_script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      script: 
+      - docker build . -t $(IMAGE_NAME):latest
+      - docker build . -t $(IMAGE_NAME):$(TRAVIS_TAG)
+      - docker push $(IMAGE_NAME):latest
+      - docker push $(IMAGE_NAME):$(TRAVIS_TAG)   
+
+

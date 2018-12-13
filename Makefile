@@ -18,31 +18,18 @@ all: fast
 clean:
 	go clean
 	rm ./${APPNAME} || true
-	rm -rf ./target || true
 
 docker_binary:
 	# Build static binary and disable cgo dependancy
-	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o $(APPNAME) ${LDFLAGS} .
+	GO111MODULE=on CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o $(APPNAME) ${LDFLAGS} .
 
 docker_build:
 	docker build . -f $(DOCKERFILE) -t $(IMAGE_NAME) --no-cache 
 
 fast:
-	go build -o ${APPNAME} ${LDFLAGS}
+	GO111MODULE=on go build -o ${APPNAME} ${LDFLAGS}
 
-linux:
-	GOOS=linux GOARCH=386 go build ${LDFLAGS} -o ./target/linux_386/${APPNAME}
-	GOOS=linux GOARCH=amd64 go build ${LDFLAGS} -o ./target/linux_amd64/${APPNAME}
-
-darwin:
-	GOOS=darwin GOARCH=386 go build ${LDFLAGS} -o ./target/darwin_386/${APPNAME}
-	GOOS=darwin GOARCH=amd64 go build ${LDFLAGS} -o ./target/darwin_amd64/${APPNAME}
-
-windows:
-	GOOS=windows GOARCH=386 go build ${LDFLAGS} -o ./target/windows_386/${APPNAME}.exe
-	GOOS=windows GOARCH=amd64 go build ${LDFLAGS} -o ./target/windows_amd64/${APPNAME}.exe
-
-build: clean linux darwin windows
+build: all
 
 docker: clean docker_binary docker_build
 

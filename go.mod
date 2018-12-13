@@ -1,41 +1,32 @@
 module github.com/liangrog/kctlr-docker-auth
 
 require (
-	github.com/PuerkitoBio/purell v0.0.0-20160728015603-8a290539e2e8
-	github.com/PuerkitoBio/urlesc v0.0.0-20160726150825-5bd2802263f2
-	github.com/aws/aws-sdk-go v0.0.0-20180410222159-57564ea051fa
-	github.com/davecgh/go-spew v0.0.0-20170626231645-782f4967f2dc
-	github.com/emicklei/go-restful v0.0.0-20170410110728-ff4f55a20633
-	github.com/ghodss/yaml v0.0.0-20150909031657-73d445a93680
-	github.com/go-ini/ini v0.0.0-20180412220431-ace140f73450
-	github.com/go-openapi/jsonpointer v0.0.0-20160704185906-46af16f9f7b1
-	github.com/go-openapi/jsonreference v0.0.0-20160704190145-13c6e3589ad9
-	github.com/go-openapi/spec v0.0.0-20170914061247-7abd5745472f
-	github.com/go-openapi/swag v0.0.0-20170606142751-f3f9494671f9
-	github.com/gogo/protobuf v0.0.0-20170330071051-c0656edd0d9e
-	github.com/golang/glog v0.0.0-20141105023935-44145f04b68c
-	github.com/golang/protobuf v0.0.0-20171021043952-1643683e1b54
-	github.com/google/btree v0.0.0-20160524151835-7d79101e329e
-	github.com/google/gofuzz v0.0.0-20161122191042-44d81051d367
-	github.com/googleapis/gnostic v0.0.0-20170729233727-0c5108395e2d
-	github.com/gregjones/httpcache v0.0.0-20170728041850-787624de3eb7
-	github.com/hashicorp/golang-lru v0.0.0-20160207214719-a0d98a5f2880
-	github.com/howeyc/gopass v0.0.0-20170109162249-bf9dde6d0d2c
-	github.com/imdario/mergo v0.0.0-20141206190957-6633656539c1
-	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
-	github.com/json-iterator/go v0.0.0-20170829155851-36b14963da70
-	github.com/juju/ratelimit v0.0.0-20170523012141-5b9ff8664717
-	github.com/mailru/easyjson v0.0.0-20170624190925-2f5df55504eb
-	github.com/peterbourgon/diskv v0.0.0-20170814173558-5f041e8faa00
-	github.com/spf13/pflag v0.0.0-20170130214245-9ff6c6923cff
-	golang.org/x/crypto v0.0.0-20170825220121-81e90905daef
-	golang.org/x/net v0.0.0-20170809000501-1c05540f6879
-	golang.org/x/sys v0.0.0-20171031081856-95c657629925
-	golang.org/x/text v0.0.0-20170810154203-b19bf474d317
-	gopkg.in/inf.v0 v0.0.0-20150911125757-3887ee99ecf0
-	gopkg.in/yaml.v2 v2.0.0-20150924142314-53feefa2559f
-	k8s.io/api v0.0.0-20180103015100-006a217681ae
-	k8s.io/apimachinery v0.0.0-20180103014849-68f9c3a1feb3
-	k8s.io/client-go v0.0.0-20180103015815-9389c055a838
-	k8s.io/kube-openapi v0.0.0-20171101183504-39a7bf85c140
+	github.com/aws/aws-sdk-go v1.16.4
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/gogo/protobuf v1.2.0 // indirect
+	github.com/golang/protobuf v1.2.0 // indirect
+	github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c // indirect
+	github.com/google/gofuzz v0.0.0-20170612174753-24818f796faf // indirect
+	github.com/googleapis/gnostic v0.2.0 // indirect
+	github.com/gregjones/httpcache v0.0.0-20181110185634-c63ab54fda8f // indirect
+	github.com/hashicorp/golang-lru v0.5.0 // indirect
+	github.com/imdario/mergo v0.3.6 // indirect
+	github.com/json-iterator/go v1.1.5 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.1 // indirect
+	github.com/peterbourgon/diskv v2.0.1+incompatible // indirect
+	github.com/spf13/pflag v1.0.3 // indirect
+	golang.org/x/crypto v0.0.0-20181203042331-505ab145d0a9 // indirect
+	golang.org/x/net v0.0.0-20181207154023-610586996380 // indirect
+	golang.org/x/oauth2 v0.0.0-20181203162652-d668ce993890 // indirect
+	golang.org/x/sys v0.0.0-20181212120007-b05ddf57801d // indirect
+	golang.org/x/text v0.3.0 // indirect
+	golang.org/x/time v0.0.0-20181108054448-85acf8d2951c // indirect
+	gopkg.in/inf.v0 v0.9.1 // indirect
+	gopkg.in/yaml.v2 v2.2.2 // indirect
+	k8s.io/api v0.0.0-20181130031204-d04500c8c3dd
+	k8s.io/apimachinery v0.0.0-20181211025822-57dc7e687b54
+	k8s.io/client-go v0.0.0-20181204000744-e64494209f55
+	k8s.io/klog v0.1.0 // indirect
+	sigs.k8s.io/yaml v1.1.0 // indirect
 )

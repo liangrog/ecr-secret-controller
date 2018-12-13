@@ -1,10 +1,10 @@
 Docker authentication controller for Kubernetes
 ===
-Kubernetes custom controller creating/refreshing docker config secret for private docker repos such as ECR.
+Custom controller for Kubernetes to manage docker config secret for private docker repos ECR.
 
 Requirements
 ---
-- go v1.11
+1.9.3 < Kubernetes version < 1.13.0
 
 Features
 ---
@@ -16,25 +16,11 @@ Docker Hub Image
 ---
 [liangrog/kctlr-docker-auth](https://hub.docker.com/r/liangrog/kctlr-docker-auth/)
 
-Version Mapping
----
-|     Branch     |   Tag   | Docker Image | Kubernetes | 
-|:--------------:|:-------:|:------------:|:----------:|
-| Master         | HEAD    | latest       | 1.9.3      |
-| release-1.9.3  | v1.9.3  | 1.9.3        | 1.9.3      |
-
-How it works
----
-
 Installation
 ---
-1. Deploy to kubernetes cluster via Helm. [Details see here](https://github.com/liangrog/chart-kctlr-docker-auth)
+Deploy to kubernetes cluster via Helm. [Details see here](https://github.com/liangrog/chart-kctlr-docker-auth)
 
-
-2. Deploy outside kubernetes cluster via docker 
-
-
-Configurations
+Development
 ---
-
+The codes works in go 1.11. Package management is using go modules.
 

@@ -4,7 +4,7 @@ Custom controller for Kubernetes to manage docker config secret for private dock
 
 Requirements
 ---
-1.9.3 < Kubernetes version < 1.13.0
+1.9.3 <= Kubernetes version <= 1.13.0
 
 Features
 ---

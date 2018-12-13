@@ -22,5 +22,5 @@ Deploy to kubernetes cluster via Helm. [Details see here](https://github.com/lia
 
 Development
 ---
-The codes works in go 1.11. Package management is using go modules.
+The codes work in go 1.11.2. Package management is using go modules.
 

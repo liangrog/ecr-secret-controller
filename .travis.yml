@@ -8,23 +8,29 @@ sudo: false
 dist: trusty
 
 go:
-  - "1.11"
+  - "1.11.2"
 
 env:
 - IMAGE_NAME: liangrog/kctlr-docker-auth
 
 stages:
-  - binary
-  - docker
+  - test
+  - binary build
+  - docker image build
 
 # Only run build for tags
-if: tag IS present
+#if: tag IS present
 
 jobs:  
   include:
-    - stage: binary
+    - stage: test
+      script:
+        - go test
+        - make all
+    - stage: binary build
       script: make docker_binary
-    - stage: docker
+      if: tag IS present
+    - stage: docker image build
       before_script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       script: 
@@ -32,5 +38,6 @@ jobs:
       - docker build . -t $(IMAGE_NAME):$(TRAVIS_TAG)
       - docker push $(IMAGE_NAME):latest
       - docker push $(IMAGE_NAME):$(TRAVIS_TAG)   
+      if: tag IS present
 
 

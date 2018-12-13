@@ -15,7 +15,6 @@ env:
 
 stages:
   - test
-  - binary build
   - docker image build
 
 # Only run build for tags
@@ -28,13 +27,11 @@ jobs:
         - make test
         - make all
         - ls -alt
-    - stage: binary build
-      script: make docker_binary
-      if: tag IS present
     - stage: docker image build
       before_script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       script: 
+      - make docker_binary
       - docker build . -t $IMAGE_NAME:latest
       - docker build . -t $IMAGE_NAME:$TRAVIS_TAG
       - docker push $IMAGE_NAME:latest
